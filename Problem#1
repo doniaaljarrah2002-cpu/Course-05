@@ -7,7 +7,6 @@ using namespace std;
 void PrintTableHeader()
 {
 	cout << "\n\n\t\t\tMultiplication Table From 1 To 10\n\n";
-	//cout << "\t";
 
 	for (int i = 1; i <= 10; i++)
 	{
