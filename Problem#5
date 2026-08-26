@@ -1,0 +1,44 @@
+
+#include <iostream>
+using namespace std;
+
+//Write a Program To Read a Number and Print it in a Reversed Order 
+
+int ReadPositiveNumber(string Message)
+{
+	int Number = 0;
+	do
+	{
+		cout << Message;
+		cin >> Number;
+
+	} while (Number <= 0);
+	return Number;
+}
+
+void PrintReversedOrder(int Number)
+{
+	int Remainder = 0;
+
+	while (Number > 0)  
+	{
+		Remainder = Number % 10;
+		Number = Number / 10;
+		cout << Remainder << endl;
+	}
+}
+
+int main()
+{
+	PrintReversedOrder(ReadPositiveNumber("Plz Enter a Positive Number : "));
+}
+
+
+
+
+
+
+
+
+
+
