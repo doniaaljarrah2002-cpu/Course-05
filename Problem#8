@@ -1,0 +1,58 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a Program Read a Digit and a Number, Then Print Digit
+Frequency In That Number   */
+
+int ReadPositiveNumber(string Message)
+{
+	int Number = 0;
+	do
+	{
+		cout << Message;
+		cin >> Number;
+
+	} while (Number <= 0);
+	return Number;
+}
+
+int CountDigitFrequency(short DigitToCheck,int Number)
+{
+	int FreqCount = 0;
+	int Remainder = 0;
+
+	while (Number > 0)
+	{
+		Remainder = Number % 10; //1234 == 4
+		Number = Number / 10;    //1234 == 123
+		if (DigitToCheck == Remainder)
+		{
+			FreqCount++;
+		}
+	}
+	return FreqCount;
+}
+
+void PrintResult()
+{
+	int Number = ReadPositiveNumber("PLz Enter The Main Number : ");
+	short DigitToCheck = ReadPositiveNumber("Plz Enter One Digit To Check : ");
+
+	cout << "\nDigit " << DigitToCheck << " Frequency is "
+		<< CountDigitFrequency(DigitToCheck, Number) << " Time(s)\n";
+}
+
+int main()
+{
+	PrintResult();
+}
+
+
+
+
+
+
+
+
+
