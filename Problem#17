@@ -24,7 +24,6 @@ bool GuessPassword(string OriginalPassword)
 		{
 			for (int k = 65; k <= 90; k++)
 			{
-				Word = "";
 				Word += char(i);
 				Word += char(j);
 				Word += char(k);
@@ -39,6 +38,7 @@ bool GuessPassword(string OriginalPassword)
 					cout << "Found After " << Counter << " Trail(s)\n";
 					return true;
 				}
+				Word = "";
 			}
 		}
 	}
