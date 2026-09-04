@@ -18,7 +18,7 @@ int RandomNumber(int From, int To)
 	return RandNum;
 }
 
-char GetRandaomCharacter(enCharType CharType)
+char GetRandomCharacter(enCharType CharType)
 {
 	switch (CharType)
 	{
@@ -49,11 +49,26 @@ int main()
 {
 	srand((unsigned)time(NULL));
 
-	cout << GetRandaomCharacter(enCharType::SmallLetter) << endl;
-	cout << GetRandaomCharacter(enCharType::CapitalLetter) << endl;
-	cout << GetRandaomCharacter(enCharType::SpicalCharacter) << endl;
-	cout << GetRandaomCharacter(enCharType::Digit) << endl;
+	cout << GetRandomCharacter(enCharType::SmallLetter) << endl;
+	cout << GetRandomCharacter(enCharType::CapitalLetter) << endl;
+	cout << GetRandomCharacter(enCharType::SpicalCharacter) << endl;
+	cout << GetRandomCharacter(enCharType::Digit) << endl;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
