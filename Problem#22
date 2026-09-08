@@ -1,0 +1,82 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to read N elements and store them in array then
+print all array elements and ask for a number to check, then print 
+how many number a certain element repeated in that array */
+
+int ReadPositiveNumber(string Message)
+{
+	int Number = 0;
+	do
+	{
+		cout << Message;
+		cin >> Number;
+
+	} while (Number <= 0);
+
+	return Number;
+}
+
+void ReadArray(int Arr[100], int& ArrLength)
+{
+	cout << "\nEnter Number Of Elements : ";
+	cin >> ArrLength;
+
+	cout << "\nEnter Array Elements : \n";
+
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		cout << "Element [" << i << "] : ";
+		cin >> Arr[i];
+	}
+	cout << endl;
+}
+
+void PrintArray(int Arr[100], int ArrLength)
+{
+	for (int i = 1 ; i <= ArrLength; i++)
+	{
+		cout << Arr[i] << " ";
+	}
+}
+
+int TimesRepeated(int Number, int Arr[100], int ArrLength)
+{
+	int Count = 0;
+	for (int i = 0; i <= ArrLength - 1; i++)
+	{
+		if (Number == Arr[i]) 
+		{
+			Count++;
+		}
+	}
+	return Count;
+}
+
+
+int main()
+{
+	int Arr[100];
+	int ArrLength;
+	int NumberToCheck;
+
+	ReadArray(Arr, ArrLength);
+
+	NumberToCheck = ReadPositiveNumber("Enter the number you want to check : ");
+
+	cout << "\nOriginal Array : ";
+	PrintArray(Arr, ArrLength);
+
+	cout << "\nNumber " << NumberToCheck << " is repeated : ";
+	cout << TimesRepeated(NumberToCheck, Arr, ArrLength) << " time(s)\n";
+}
+
+
+
+
+
+
+
+
