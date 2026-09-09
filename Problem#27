@@ -1,0 +1,78 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to fill array with max size 100 with random
+numbers from 1 to 100, then print Average of all numbers  */
+
+int RandomNumber(int From, int To)
+{
+	int RandNum = rand() % (To - From + 1) + From;
+	return RandNum;
+}
+
+void FillArrayWithRandomNumbers(int Arr[100], int& ArrLength)
+{
+	cout << "\nEnter Number Of Elements : ";
+	cin >> ArrLength;
+
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+	cout << endl;
+}
+
+void PrintArray(int Arr[100], int ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		cout << Arr[i] << " ";
+	}
+	cout << endl;
+}
+
+int SumArray(int Arr[100], int ArrLength)
+{
+	int Sum = 0;
+
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		Sum += Arr[i];
+	}
+	return Sum;
+}
+
+float ArrayAverage(int Arr[100], int ArrLength)
+{
+	return (float)SumArray(Arr, ArrLength) / ArrLength;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	int Arr[100], ArrLength;
+
+	FillArrayWithRandomNumbers(Arr, ArrLength);
+
+	cout << "\nArray Elements : ";
+	PrintArray(Arr, ArrLength);
+
+	cout << "\Average of all numbers is : " << ArrayAverage(Arr, ArrLength) << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
