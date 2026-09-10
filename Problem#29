@@ -1,0 +1,94 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to fill array with max size 100 with random
+numbers from 1 to 100, copy only prime numbers to another array
+and print it */
+
+enum enPrimeNotPrime { Prime = 1, NotPrime = 2 };
+
+enPrimeNotPrime CheckPrime(int Number)
+{
+	int M = round(Number / 2);
+
+	for (int Counter = 2; Counter <= M; Counter++)
+	{
+		if (Number % Counter == 0)
+		{
+			return enPrimeNotPrime::NotPrime;
+		}
+	}
+	return enPrimeNotPrime::Prime;
+}
+
+int RandomNumber(int From, int To)
+{
+	int RandNum = rand() % (To - From + 1) + From;
+	return RandNum;
+}
+
+void FillArrayWithRandomNumbers(int Arr[100], int& ArrLength)
+{
+	cout << "\nEnter Number Of Elements : ";
+	cin >> ArrLength;
+
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+}
+
+void PrintArray(int Arr[100], int ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		cout << Arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void CopyOnlyPrimeNumbers(int ArrSource[100], int ArrDestination[100],
+	int ArrLength, int& Arr2Length)
+{
+	int Counter = 0;
+
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		if (CheckPrime(ArrSource[i]) == enPrimeNotPrime::Prime)
+		{
+			ArrDestination[Counter] = ArrSource[i];
+			Counter++;
+		}
+	}
+	Arr2Length = --Counter;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	int Arr[100], Arr2[100], ArrLength = 0, Arr2Length = 0;
+
+	FillArrayWithRandomNumbers(Arr, ArrLength);
+
+	cout << "\nArray 1 Elements : \n";
+	PrintArray(Arr, ArrLength);
+
+
+	CopyOnlyPrimeNumbers(Arr, Arr2, ArrLength, Arr2Length);
+	cout << "\nPrime Numbers In Array2 :\n";
+	PrintArray(Arr2, Arr2Length);
+
+}
+
+
+
+
+
+
+
+
+
+
+
