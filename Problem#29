@@ -51,17 +51,16 @@ void PrintArray(int Arr[100], int ArrLength)
 void CopyOnlyPrimeNumbers(int ArrSource[100], int ArrDestination[100],
 	int ArrLength, int& Arr2Length)
 {
-	int Counter = 0;
+	Arr2Length = 0;
 
 	for (int i = 1; i <= ArrLength; i++)
 	{
 		if (CheckPrime(ArrSource[i]) == enPrimeNotPrime::Prime)
 		{
-			ArrDestination[Counter] = ArrSource[i];
-			Counter++;
+			ArrDestination[Arr2Length] = ArrSource[i];
+			Arr2Length++;
 		}
 	}
-	Arr2Length = --Counter;
 }
 
 int main()
@@ -75,12 +74,21 @@ int main()
 	cout << "\nArray 1 Elements : \n";
 	PrintArray(Arr, ArrLength);
 
-
 	CopyOnlyPrimeNumbers(Arr, Arr2, ArrLength, Arr2Length);
 	cout << "\nPrime Numbers In Array2 :\n";
 	PrintArray(Arr2, Arr2Length);
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
