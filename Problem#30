@@ -1,0 +1,83 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to fill array two arrays with max size 100 with 
+random numbers from 1 to 100, sum their elements in a third array
+and print the results */
+
+int RandomNumber(int From, int To)
+{
+	int RandNum = rand() % (To - From + 1) + From;
+	return RandNum;
+}
+
+int ReadPositiveNumber(string Message)
+{
+	int Number = 0;
+	do
+	{
+		cout << Message;
+		cin >> Number;
+
+	} while (Number <= 0);
+
+	return Number;
+}
+
+void FillArrayWithRandomNumbers(int Arr[100], int& ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+}
+
+void PrintArray(int Arr[100], int ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		cout << Arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void SumOf2Arrays(int Arr[100], int Arr2[100], int ArrSum[100],
+	int ArrLength)
+{
+	for (int i = 1 ; i <= ArrLength; i++)
+	{
+		ArrSum[i] = Arr[i] + Arr2[i];
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	int Arr[100], Arr2[100], ArrSum[100];
+
+	int ArrLength = ReadPositiveNumber("Enter Number Of Elements : ");
+
+	FillArrayWithRandomNumbers(Arr, ArrLength);
+	FillArrayWithRandomNumbers(Arr2, ArrLength);
+	SumOf2Arrays(Arr, Arr2, ArrSum, ArrLength);
+
+	cout << "\nArray 1 Elements : \n";
+	PrintArray(Arr, ArrLength);
+
+	cout << "\nArray 2 Elements : \n";
+	PrintArray(Arr2, ArrLength);
+
+	cout << "\nSum Of Array1 and Array2 Elements :\n";
+	PrintArray(ArrSum, ArrLength);
+}
+
+
+
+
+
+
+
+
+
