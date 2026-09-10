@@ -1,0 +1,63 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to fill array with max size 100 with random
+numbers from 1 to 100, copy it to another array and print it */
+
+int RandomNumber(int From , int To)
+{
+	int RandNum = rand() % (To - From + 1) + From;
+	return RandNum;
+}
+
+void FillArrayWithRandomNumbers(int Arr[100], int& ArrLength)
+{
+	cout << "\nEnter Number Of Elements : ";
+	cin >> ArrLength;
+
+	for (int i =1 ; i <= ArrLength ; i++)
+	{
+		Arr[i] = RandomNumber(1, 100);
+	}
+}
+
+void PrintArray(int Arr[100], int ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		cout << Arr[i] << " ";
+	}
+	cout << endl;
+}
+
+void CopyArray(int ArrSource[100], int ArrDestination[100], int ArrLength)
+{
+	for (int i = 1; i <= ArrLength; i++)
+	{
+		ArrDestination[i] = ArrSource[i];
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	int Arr[100], Arr2[100], ArrLength;
+
+	FillArrayWithRandomNumbers(Arr, ArrLength);
+
+	CopyArray(Arr, Arr2, ArrLength);
+
+	cout << "\nArray 1 Elements : \n";
+	PrintArray(Arr, ArrLength);
+
+	cout << "\nArray 2 Elements After Copy : \n";
+	PrintArray(Arr2, ArrLength);
+}
+
+
+
+
+
+
