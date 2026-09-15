@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+/* Write a program to fill array with max size 100 with random numbers
+  from 1 to 100 ,copy only prime numbers to another arrar using
+  AddArrayElemnts, and print it */
+
 enum enPrimNotPrime { Prime = 1, NotPrime = 2 };
 
 enPrimNotPrime CheckPrime(int Number)
