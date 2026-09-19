@@ -1,0 +1,42 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to print Floor of Numbers, don't use built
+   in Floor function */
+
+float ReadNumber()
+{
+	float Number;
+	cout << "Plz Enter a float Number : ";
+	cin >> Number;
+	return Number;
+}
+
+int MyFloor(float Number)
+{
+	if (Number >= 0)
+	{
+		return int(Number);
+	}
+	else
+	{
+		return int(Number) - 1;
+	}
+}
+
+int main()
+{
+	float Number = ReadNumber();
+
+	cout << "\nMy Floor Result : " << MyFloor(Number) << endl;
+	cout << "\nC++ Floor Result : " << floor(Number) << endl;
+}
+
+
+
+
+
+
+
+
