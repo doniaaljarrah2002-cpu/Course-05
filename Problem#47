@@ -1,0 +1,57 @@
+
+#include <iostream>
+using namespace std;
+
+/* Write a program to print Round of Numbers, don't use built
+   in Round function */
+
+float ReadNumber()
+{
+	float Number;
+	cout << "Plz Enter a float Number : ";
+	cin >> Number;
+	return Number;
+}
+
+float GetFractionPart(float Number)
+{
+	return Number - int(Number);
+}
+
+int MyRound(float Number)
+{
+	int IntPart;
+	IntPart = int(Number);
+
+	float FractionPart = GetFractionPart(Number);
+
+	if (abs(FractionPart) >= 0.5)
+	{
+		if (Number > 0)
+			return ++IntPart;
+		else
+			return --IntPart;
+	}
+	else
+	{
+		return IntPart;
+	}
+}
+
+int main()
+{
+	float Number = ReadNumber();
+
+	cout << "\nMy Round Result : " << MyRound(Number) << endl;
+	cout << "\nC++ Round Result : " << round(Number) << endl;
+}
+
+
+
+
+
+
+
+
+
+
